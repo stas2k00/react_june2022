@@ -1,0 +1,20 @@
+.simpsons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 20px;
+    justify-content: center;
+}
+
+.simpson {
+    width: 300px;
+    text-align: center;
+}
+
+.simpson>img {
+    height: 200px;
+}
+
+.simpson>.info {
+    text-align: justify;
+}
+

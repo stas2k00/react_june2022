@@ -1,0 +1,13 @@
+.rick-morty {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 20px;
+    justify-content: center;
+}
+
+.character>p::first-line {
+    color: orange;
+}
+.character>p {
+    margin: 0;
+}
