@@ -3,6 +3,8 @@
     flex-wrap: wrap;
     gap: 20px 20px;
     justify-content: center;
+    max-width: 1600px;
+    margin: 0 auto;
 }
 
 .character>p::first-line {
@@ -10,4 +12,7 @@
 }
 .character>p {
     margin: 0;
+}
+.character {
+    width: 300px;
 }

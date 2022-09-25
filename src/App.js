@@ -7,7 +7,7 @@ function App() {
   return (
       <div className={'hw1'}>
         <div className={'simpsons'}><Simpsons/></div>
-        <div className={'rick-morty'}><Characters countOfCharacters={10}/></div>
+        <div className={'rick-morty'}><Characters countOfCharacters={20}/></div>
       </div>
   )
 }
