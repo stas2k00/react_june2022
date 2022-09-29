@@ -1,9 +1,7 @@
-export default function User (props) {
-    let {id,name} = props.item;
-    return (
-        <div>
-            <h3>ID {id}</h3>
-            <h4>Name {name}</h4>
-        </div>
-    )
+export default function User({userInfo}) {
+    return (<div>
+        <div>ID {userInfo.id}</div>
+        <div>Name {userInfo.name}</div>
+        <button onClick={()=>{userInfo.MoreDetails(userInfo)}}>More Info</button>
+    </div>)
 }
