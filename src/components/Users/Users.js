@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import GetData from "../../services/getter.api.services";
 import {User,UserDetails} from "./User";
 
-function iterKey (obj) {
+export function iterKey(obj) {
     let arrayOfKeys = [];
     for (const [keyName,valueName] of Object.entries(obj)) {
         if (typeof valueName === `object`) {
