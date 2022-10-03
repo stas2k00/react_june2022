@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
-import GetData from "../../services/getter.api.services";
+
 import {User,UserDetails} from "./User";
+import {GetData} from "../../services/getter.api.services.users";
 
 export function iterKey(obj) {
     let arrayOfKeys = [];
@@ -21,8 +22,7 @@ export default function Users() {
         userStatus ? userStatus[0] === userInfoArray[0] ? SetUser(null) : SetUser(userInfoArray) : SetUser(userInfoArray)
     }
     useEffect(()=>{
-        GetData('https://jsonplaceholder.typicode.com/users/')
-            .then(users => SetUsers(users))
+    GetData.then(users => {SetUsers(users.data)})
     },[])
     return (<div style={{display:'flex'}}>
         <div>{users.map((user,index)=><User userInfo={user} MoreDetails={MoreDetails} userStatus={userInfo} key={index}/>)}</div>
