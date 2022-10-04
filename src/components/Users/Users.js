@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
 
-import {User,UserDetails} from "./User";
-import {GetData} from "../../services/getter.api.services.users";
+import {User,UserPosts} from "./User";
+import {GetDataUsers,GetDataPosts} from "../../services/getter.api.services.users";
+import {type} from "@testing-library/user-event/dist/type";
 
 export function iterKey(obj) {
     let arrayOfKeys = [];
@@ -16,16 +17,19 @@ export function iterKey(obj) {
 }
 export default function Users() {
     let [users,SetUsers] = useState([])
-    let [userInfo,SetUser] = useState(null)
-    const MoreDetails = (userInfo,userStatus) => {
-        let userInfoArray = iterKey(userInfo);
-        userStatus ? userStatus[0] === userInfoArray[0] ? SetUser(null) : SetUser(userInfoArray) : SetUser(userInfoArray)
+    let [userInfoPosts,SetUserPosts] = useState(null)
+    let [posts,SetPost] = useState(null)
+    const InfoPosts = (userInfo,userInfoPosts,posts) => {
+        let arrayOfPostsUser = posts.filter((post)=>userInfo.id === post.userId);
+        let userInfoArray = iterKey(arrayOfPostsUser);
+        userInfoPosts ? userInfo.id === arrayOfPostsUser[0].userId ? SetUserPosts(null) : SetUserPosts(userInfoArray) : SetUserPosts(userInfoArray)
     }
     useEffect(()=>{
-    GetData.then(users => {SetUsers(users.data)})
+        GetDataUsers.then(users => {SetUsers(users.data)});
+        GetDataPosts.then(posts=>{SetPost(posts.data)});
     },[])
     return (<div style={{display:'flex'}}>
-        <div>{users.map((user,index)=><User userInfo={user} MoreDetails={MoreDetails} userStatus={userInfo} key={index}/>)}</div>
-        {userInfo && <div style={{borderLeft:'5px solid black'}}><UserDetails userInfo={userInfo}/></div>}
+        <div>{users.map((user,index)=><User userInfo={user} InfoPosts={InfoPosts} userInfoPosts={userInfoPosts} key={index} posts={posts}/>)}</div>
+        {userInfoPosts && <div style={{borderLeft:'5px solid black'}}><UserPosts userInfoPosts={userInfoPosts}/></div>}
     </div>)
 }

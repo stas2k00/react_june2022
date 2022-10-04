@@ -4,8 +4,8 @@ import Users from "./components/Users/Users";
 import SpaceX from "./components/SpaceX/SpaceX";
 
 function App() {
-  // return (<Users/>)
-  return (<SpaceX/>)
+  return (<Users/>)
+  // return (<SpaceX/>)
 }
 
 export default App;
