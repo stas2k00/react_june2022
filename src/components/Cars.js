@@ -8,11 +8,11 @@ import CarForm from "./CarForm";
 
 export default function Cars () {
     let [cars,setCars] = useState([])
-    useEffect(()=>{axiosTools.getAll().then(({data})=>setCars(data))
-    },[])
-    return (<div>
-        <CarForm/>
-        <div className={css.Cars}>{cars.map(car=><Car car={car} key={car.id}/>)}</div>
+    let [editCar,setEditCar] = useState(null)
+    useEffect(()=>{axiosTools.getCars().then(({data})=>setCars(data))},[])
+    return (<div className={css.Cars}>
+        <CarForm setCars={setCars} setEditCar={setEditCar}/>
+        {cars.map(car=><Car car={car} key={car.id} setCars={setCars} setEditCar={setEditCar} editCar={editCar}/>)}
     </div>)
 }
 

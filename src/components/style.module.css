@@ -1,36 +1,36 @@
-.Car {
-    border: 5px solid;
-    border-radius: 25px;
-    width: 120px;
-    padding: 20px;
-
-}
-
 .Cars {
     display: flex;
+    gap: 20px;
     flex-wrap: wrap;
-    gap:20px 20px
 }
 
-.CarDetails,.ButtonContainer {
+.Form {
+    display: flex;
+    flex-direction: column;
+    border: 5px solid black;
+    border-radius: 20px;
+    padding: 20px;
+    width: 120px;
+    row-gap: 2px;
+}
+
+.Car {
+    border: 5px solid black;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.CarDetails,.ButtonContainer{
     display: flex;
     justify-content: space-between;
+    width: 120px;
 }
 
-.Button {
+.ButtonContainer>input {
     width: 40%;
-    padding: 0px;
-    height: 25px;
-    font-size: 12px;
-    border-radius: 25px;
-    background-color: white;
-    margin-top: 20px;
+    padding: 0;
 }
-
-.Button:hover {
-    background-color: black;
-    color: white;
-}
-.Form {
-    margin-bottom: 20px;
+.ButtonContainer>button {
+    width: 40%;
+    padding: 0;
 }
