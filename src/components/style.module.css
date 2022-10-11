@@ -25,6 +25,9 @@
     justify-content: space-between;
     width: 120px;
 }
+.CarDetails>div:first-child {
+    color: orange;
+}
 
 .ButtonContainer>input {
     width: 40%;
@@ -33,4 +36,15 @@
 .ButtonContainer>button {
     width: 40%;
     padding: 0;
+}
+
+.ButtonContainer>button,.ButtonContainer>input,.Form>button{
+    color: black;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.ButtonContainer>button:hover,.ButtonContainer>input:hover,.Form>button:hover {
+    background-color: black;
+    color:white;
 }
